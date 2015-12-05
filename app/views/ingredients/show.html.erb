@@ -6,6 +6,15 @@
   <%= @ingredient.name %>
 </p>
 
+<% if current_user %>
+<p>
+  <% if current_user.has_ingredient?(@ingredient) %>
+    <%= link_to "Remove from my Collection", user_ingredient_path(current_user, @ingredient), method: :delete %>
+  <% else %>
+    <%= link_to "Add to my Collection", user_ingredients_path(current_user, id: @ingredient.id), method: :post %>
+  <% end %>
+</p>
+<% end %>
 
 <p>
   <strong>Cocktails:</strong>

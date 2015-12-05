@@ -1,11 +1,11 @@
-class Cocktail 
+class Cocktail
   include Neo4j::ActiveNode
   property :name, type: String
 
   scope :by_name, -> { order(:name) }
-  
+
   has_many :out, :ingredients, rel_class: CocktailIngredient, unique: true
-  has_many :in, :favorited_by, type: 'FAVORITED', model_class: 'User'
+  has_many :in, :favorited_by, type: 'FAVORITED', model_class: 'User', unique: true
 
   validates_presence_of :name
 

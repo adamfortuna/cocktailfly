@@ -27,7 +27,10 @@
 <h3>Ingredients</h3>
 <ul>
   <% @ingredients.each do |ingredient| %>
-    <li><%= link_to ingredient.name, user_ingredient_path(@user, ingredient) %></li>
+    <li>
+      <%= link_to ingredient.name, user_ingredient_path(@user, ingredient) %>
+      <%= link_to "(Remove)", user_ingredient_path(current_user, ingredient), method: :delete %>
+    </li>
   <% end %>
 </ul>
 
