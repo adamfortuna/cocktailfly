@@ -1,0 +1,35 @@
+<h1>User</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+
+<p>
+  <strong>Ingredients:</strong>
+  <p>You have <%= @user.owned_ingredients.count %> ingredients</p>
+
+</p>
+
+<p>
+  <strong>Cocktails:</strong>
+  <p>Cocktails you have at least 1 ingredient of: <%= @user.cocktails_by_min_ingredients_count(1) %> </p>
+</p>
+
+<p>
+  <strong>Cocktails:</strong>
+  <p>You can make <%= @user.makeable_cocktails_count %> cocktails </p>
+</p>
+
+<h3>Ingredients</h3>
+<ul>
+  <% @ingredients.each do |ingredient| %>
+    <li><%= link_to ingredient.name, user_ingredient_path(@user, ingredient) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

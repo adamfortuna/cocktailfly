@@ -1,0 +1,10 @@
+
+.ingredient-fields.nested-fields
+  .form-group
+    = f.label 'Ingredient'
+    = f.select 'to_node_uuid', options_from_collection_for_select(Ingredient.by_name.all, :id, :name, recipe.to_node_uuid), {}, { class: 'form-control' }
+  .form-group
+    = f.label 'Amount'
+    = f.text_field 'amount', class: 'form-control'
+
+  = link_to_remove_association 'x', f, { wrapper_class: 'nested-fields', class: 'remove_fields existing btn btn-danger btn-sm' }

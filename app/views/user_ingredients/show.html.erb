@@ -1,0 +1,14 @@
+<h1>User > <%= @user.name %> > Ingredient > <%= @ingredient.name %></h1>
+
+
+<p>
+  Cocktails you can make with this ingredient: (<%=@cocktails.length%>)
+  <ul>
+    <% @cocktails.each do |cocktail| %>
+      <li><%= link_to cocktail.name, cocktail %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

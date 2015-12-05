@@ -1,0 +1,16 @@
+<h1>Cocktails > <%= @cocktail.name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Ingredients:</strong>
+  <ul>
+    <% @cocktail.ingredients.each_with_rel do |ingredient, recipe| %>
+      <li><%= link_to ingredient.name, ingredient %> (<%= recipe.amount %>)</li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+<%= link_to 'Back', cocktails_path %>

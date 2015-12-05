@@ -1,0 +1,12 @@
+<ul>
+    <% @user.owned_ingredients.each do |ingredient| %>
+      <li><%= link_to ingredient.name, ingredient %> </li>
+    <% end %>
+  </ul>
+
+
+  <ul>
+    <%  #@user.makeable_cocktails.each do |cocktail| %>
+      <li><%= link_to cocktail.name, cocktail %> </li>
+    <% # end %>
+  </ul>
